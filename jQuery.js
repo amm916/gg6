@@ -22,6 +22,7 @@ $(document).ready(function() {
 	});
 });
 
+/* -- */
 
 // JavaScript for "Online Store - Products"
 
