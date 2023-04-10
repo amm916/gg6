@@ -71,3 +71,13 @@ def contact():
 @app.route("/thankyou")
 def thankyou():
     return render_template("thankyou.html")
+
+# Define the route for the 404 page
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template("404.html"), 404
+
+# Define the route for the server error page
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template("500.html"), 500
