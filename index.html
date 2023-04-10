@@ -1,67 +1,43 @@
-<!-- The following is an HTML document -->
 <!DOCTYPE html>
 <html>
 
 <head>
-    <!-- The title of the document is "Online Store - Products" -->
-    <title>Online Store - Products</title>
-
-    <!-- Load external CSS stylesheets -->
+    <title>Online Store</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-lzUd7Kuqw9XAPo29+HJy6Uj7LJ/zj6+Je2VzViCV1+iJ2ktj+2q3e7sXs/24BvIxYpw2Qq3upJzT8xvENM0zA==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
-    <!-- The header of the page -->
     <header>
-        <script>
-            jQuery.js
-        </script>
-        <!-- The main heading of the page -->
         <h1>Online Store</h1>
-
-        <!-- A navigation bar using Bootstrap framework -->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <!-- The brand link -->
             <a class="navbar-brand" href="#">Online Store</a>
-
-            <!-- A button to toggle navigation links on small screens -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
-            <!-- The actual navigation links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#products">Products</a>
+                        <a class="nav-link" href="products.html">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
+                        <a class="nav-link" href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
+                        <a class="nav-link" href="contact-us.html">Contact Us</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-
-    <!-- The main content of the page -->
     <main>
-        <!-- The "Home" section with a brief welcome message -->
-        <div id="home" class="container">
-            <h2>Home</h2>
-            <p>Welcome to our online store!</p>
-        </div>
-
-        <!-- The "Products" section with a row of 3 products in cards -->
-        <div id="products" class="container">
+        <div class="container">
             <h2>Products</h2>
             <div class="row">
                 <div class="col-md-4">
@@ -84,53 +60,65 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card">
-                            <img class="card-img-top" src="https://fakeimg.pl/350x200/" alt="Product 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 3</h5>
-                                <a href="#" class="btn btn-primary">Buy Now</a>
-                            </div>
+                        <img class="card-img-top" src="https://fakeimg.pl/350x200/" alt="Product 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 3</h5>
+                            <a href="#" class="btn btn-primary">Buy Now</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="about" class="container">
-                <h2>About Us</h2>
-                <p>We are an online store that offers a wide range of products at competitive prices.</p>
-                <p>Our mission is to provide our customers with the best online shopping experience possible, by offering high-quality products, fast and reliable shipping, and excellent customer service.</p>
-            </div>
-            <div id="contact" class="container">
-                <h2>Contact Us</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea class="form-control" id="message" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+        </div>
     </main>
     <footer>
-        <p>© 2023 Online Store. All rights reserved.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About Us</h3>
+                    <p>We are an online store that sells a variety of products, including electronics, clothing, and home goods. Our mission is to provide our customers with high-quality products at affordable prices. If you have any questions or concerns,
+                        please don't hesitate to contact us. We value your feedback and are always looking for ways to improve our service.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Us</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2023 Online Store. All rights reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
+    <main>
+        <div class="container">
+            <h2>Welcome to Online Store</h2>
+            <p>We offer a wide variety of products at affordable prices. Browse our collection today!</p>
+            <a href="products.html" class="btn btn-primary">Shop Now</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Online Store. All rights reserved.</p>
+    </footer>
+
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>
