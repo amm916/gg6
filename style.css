@@ -74,11 +74,29 @@ button:hover {
     border: 1px solid #f00;
 }
 
-div.aa {
+div.about {
     border: 1px solid black;
     background-color: rgb(255, 255, 255);
     padding-top: 150px;
     padding-right: 30px;
-    padding-bottom: 250px;
+    padding-bottom: 880px;
+    padding-left: 80px;
+}
+
+div.home {
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    padding-top: 150px;
+    padding-right: 30px;
+    padding-bottom: 870px;
+    padding-left: 80px;
+}
+
+div.contact {
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    padding-top: 150px;
+    padding-right: 30px;
+    padding-bottom: 790px;
     padding-left: 80px;
 }
