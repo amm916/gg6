@@ -3,6 +3,7 @@
 
 <head>
     <title>Contact Us - Online Store</title>
+    <link rel="stylesheet" href="clock_style.css">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-lzUd7Kuqw9XAPo29+HJy6Uj7LJ/zj6+Je2VzViCV1+iJ2ktj+2q3e7sXs/24BvIxYpw2Qq3upJzT8xvENM0zA==" crossorigin="anonymous" referrerpolicy="no-referrer"
@@ -32,10 +33,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact-us.html">Contact Us</a>
                     </li>
-                </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.html">Cart</a>
+                    </ul>
             </div>
         </nav>
     </header>
+
     <main>
 
         <div class="contact">
@@ -47,10 +52,43 @@
                 <input type="email" id="email" name="email"><br>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message"></textarea><br>
-                <input type="submit" value="Submit">
+                <button type="submit" id="email" class="black">Submit</button>
+
             </form>
 
         </div>
+
+        </div>
+        <!-- partial:index.partial.html -->
+        <!-- #CodePenChallenge: Timekeeping -->
+        <div class="clock">
+            <div class="hour-hand">
+            </div>
+            <div class="minute-hand">
+            </div>
+            <div class="second-hand">
+            </div>
+            <div class="circle">
+            </div>
+            <ul class="digits">
+                <li class="digit">1</li>
+                <li class="digit">2</li>
+                <li class="digit">3</li>
+                <li class="digit">4</li>
+                <li class="digit">5</li>
+                <li class="digit">6</li>
+                <li class="digit">7</li>
+                <li class="digit">8</li>
+                <li class="digit">9</li>
+                <li class="digit">10</li>
+                <li class="digit">11</li>
+                <li class="digit">12</li>
+            </ul>
+        </div>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <script src="clock_js.js"></script>
+        <script src="a.js"></script>
 
     </main>
     <footer>
