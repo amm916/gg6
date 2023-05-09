@@ -1,0 +1,30 @@
+<!-- This code extends the layout.html template and displays a blog post -->
+<!-- Define the content block -->
+{% block content %}
+
+  <!-- Create a container for the post -->
+  <div class="container">
+    <!-- Create a row to contain the post -->
+    <div class="row">
+      <!-- Create a column to hold the post -->
+      <div class="col-md-12">
+        <!-- Create a card to display the post -->
+        <div class="card mb-4">
+          <!-- Create a card body to hold the post title and content -->
+          <div class="card-body">
+            <!-- Display the post title -->
+            <h2 class="card-title">{{ post.title }}</h2>
+            <!-- Display the post content -->
+            <p class="card-text">{{ post.content }}</p>
+          </div>
+          <!-- Create a card footer to display the post author and date posted -->
+          <div class="card-footer text-muted">
+            <!-- Display the date posted in a formatted string -->
+            Posted on {{ post.date_posted.strftime('%B %d, %Y') }} by {{ post.author }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End the content block -->
+{% endblock %}
