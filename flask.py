@@ -17,7 +17,7 @@ mail = Mail(app)
 # Define the route for the home page
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("home.html")
 
 # Define the route for the posts page
 @app.route("/posts")
