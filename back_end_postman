@@ -1,0 +1,285 @@
+{
+    "info": {
+        "_postman_id": "406838a1-f5c7-450d-9f6f-df1767015633",
+        "name": "g6",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "27394652",
+        "_collection_link": "https://blue-flare-722989.postman.co/workspace/g6~eb2bb6d9-5d42-469c-9f76-c290854917fe/collection/27394652-406838a1-f5c7-450d-9f6f-df1767015633?action=share&creator=27394652&source=collection_link"
+    },
+    "item": [{
+            "name": "list_users",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 200\r",
+                        "pm.test(\"Status code is 200\", function () {\r",
+                        "    pm.response.to.have.status(200);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response body is not empty\r",
+                        "pm.test(\"Response body is not empty\", function () {\r",
+                        "    pm.response.to.not.be.null;\r",
+                        "    pm.response.to.not.be.undefined;\r",
+                        "});"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/users\n",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "users\n"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "update",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 200\r",
+                        "pm.test(\"Status code is 200\", function () {\r",
+                        "    pm.response.to.have.status(200);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response body contains the correct user details\r",
+                        "pm.test(\"Response body contains the correct user details\", function () {\r",
+                        "    var jsonData = pm.response.json();\r",
+                        "    pm.expect(jsonData.data.id).to.equal(2);\r",
+                        "    pm.expect(jsonData.data.first_name).to.equal(\"Janet\");\r",
+                        "    pm.expect(jsonData.data.last_name).to.equal(\"Weaver\");\r",
+                        "    pm.ex"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/users/2",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "users",
+                        "2"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "delete",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 204\r",
+                        "pm.test(\"Status code is 204\", function () {\r",
+                        "    pm.response.to.have.status(204);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response body is empty\r",
+                        "pm.test(\"Response body is empty\", function () {\r",
+                        "    pm.response.to.have.body(\"\");\r",
+                        "});"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/users/2",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "users",
+                        "2"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "single_user",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 200\r",
+                        "pm.test(\"Status code is 200\", function () {\r",
+                        "    pm.response.to.have.status(200);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response body contains the correct user's email\r",
+                        "pm.test(\"Response body contains correct user's email\", function () {\r",
+                        "    var jsonData = pm.response.json();\r",
+                        "    pm.expect(jsonData.data.email).to.equal(\"janet.weaver@reqres.in\");\r",
+                        "});"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/users/2",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "users",
+                        "2"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "list_resorse",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 200\r",
+                        "pm.test(\"Status code is 200\", function () {\r",
+                        "    pm.response.to.have.status(200);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response body contains the correct number of resources\r",
+                        "pm.test(\"Response body contains correct number of resources\", function () {\r",
+                        "    var jsonData = pm.response.json();\r",
+                        "    pm.expect(jsonData.data.length).to.equal(6);\r",
+                        "});"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/unknown",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "unknown"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "single_resorse",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 200\r",
+                        "pm.test(\"Status code is 200\", function () {\r",
+                        "    pm.response.to.have.status(200);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response body contains the correct resource's name\r",
+                        "pm.test(\"Response body contains correct resource's name\", function () {\r",
+                        "    var jsonData = pm.response.json();\r",
+                        "    pm.expect(jsonData.data.name).to.equal(\"fuchsia rose\");\r",
+                        "});"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/unknown/2",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "unknown",
+                        "2"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "delay_response",
+            "event": [{
+                "listen": "test",
+                "script": {
+                    "exec": [
+                        "// Test 1: Verify that the response status code is 200\r",
+                        "pm.test(\"Status code is 200\", function () {\r",
+                        "    pm.response.to.have.status(200);\r",
+                        "});\r",
+                        "\r",
+                        "// Test 2: Verify that the response delay is greater than or equal to 3000 ms\r",
+                        "pm.test(\"Response delay is greater than or equal to 3000 ms\", function () {\r",
+                        "    var responseTime = pm.response.responseTime;\r",
+                        "    pm.expect(responseTime).to.be.at.least(3000);\r",
+                        "});"
+                    ],
+                    "type": "text/javascript"
+                }
+            }],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://reqres.in/api/users?delay=3",
+                    "protocol": "https",
+                    "host": [
+                        "reqres",
+                        "in"
+                    ],
+                    "path": [
+                        "api",
+                        "users"
+                    ],
+                    "query": [{
+                        "key": "delay",
+                        "value": "3"
+                    }]
+                }
+            },
+            "response": []
+        }
+    ]
+}
