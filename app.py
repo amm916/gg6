@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for
+from app import Flask, render_template, request, redirect, url_for
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
