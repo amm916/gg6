@@ -1,6 +1,5 @@
 from datetime import datetime
 from app import Flask, render_template, request, redirect, url_for
-from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
@@ -12,7 +11,6 @@ app.config['MAIL_USERNAME'] = 'youremail@gmail.com'
 app.config['MAIL_PASSWORD'] = 'yourpassword'
 
 # Define the mail object for sending emails
-mail = Mail(app)
 
 # Define the route for the home page
 @app.route("/")
@@ -44,14 +42,7 @@ def contact():
     @app.route('/send_email', methods=['POST'])
     def send_reset_email():
         user_email = request.form['user_email']
-    msg = Message('title of  email',
-                  sender='noreply@demo.com',
-                  recipients=['Ubtalubt@gmail.com'])
-    msg.body = f'''
-        Hello {'Ubtalubt@gmail.com'},
-    '''
-    mail.send(msg)
-    return 'success!'
+
 
 # Define the route for the thank you page
 @app.route("/thankyou")
