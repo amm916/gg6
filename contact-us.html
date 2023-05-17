@@ -1,113 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Contact Us - Online Store</title>
-    <link rel="stylesheet" href="clock_style.css">
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-lzUd7Kuqw9XAPo29+HJy6Uj7LJ/zj6+Je2VzViCV1+iJ2ktj+2q3e7sXs/24BvIxYpw2Qq3upJzT8xvENM0zA==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-    <script>
-        function submitForm() {
-            document.getElementById("contact-form").reset();
-            document.getElementById("thank-you-message").style.display = "block";
-        }
-    </script>
+    {% extends "layout.html" %} {% block head %} {{ super() }}
+    <title>Contact Us</title>
+    <!-- Favicon no longer needed -->
+    <!-- <link rel="shortcut icon" type="image/jpg" href="static\images\favicon.ico"/> -->
+    {% endblock %}
 </head>
 
 <body>
-    <header>
-        <h1>UBT mobile Store</h1>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
-                    </li>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.html">Cart</a>
-                    </ul>
+    <!-- Main Content -->
+    {% block myContent %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h1>Contact us Page</h1>
+                <p>Here you can find our contact information</p>
+                <div class="container">
+                    <!-- Send email using email client -->
+                    <div class="row" style="float:left; width: 45%">
+                        <div class="col-12">
+
+                            <fieldset style="padding:12px; border: solid; border-width: thin; border-color: #a8a8a8;">
+                                <legend id="Legend5" runat="server" visible="true" style="width:auto; margin-bottom: 0px;
+                 font-size: 12px; font-weight: bold; color: #1f497d;">
+                                    Or you can fill this form to contact us Using your own email client:
+                                </legend>
+                                <div style="padding:24px;">
+                                    <form action="mailto:ub0052@st.ubt.edu.sa" method="POST" enctype="multipart/form-data" name="EmailForm">
+                                        Name:<br>
+                                        <input type="text" size="25" name="Contact-Name"><br><br> Email:
+                                        <br>
+                                        <input type="email" size="25" name="Contact-Email"><br><br> Enter Your Message Here:<br>
+                                        <textarea name="Contact-Message" rows="6" cols="20">
+                    </textarea><br><br>
+                                        <button type="submit" value="Submit" class="btn">Send</button>
+                                    </form>
+                                </div>
+                            </fieldset>
+
+                        </div>
+                    </div>
+                    <!-- Send email using Flask -->
+                    <div class="row" style="float:right; width:45%">
+                        <div class="col-12">
+
+                            <fieldset style="padding:12px; border: solid; border-width: thin; border-color: #a8a8a8;">
+                                <legend id="Legend5" runat="server" visible="true" style="width:auto; margin-bottom: 0px;
+                 font-size: 12px; font-weight: bold; color: #1f497d;">
+                                    Or you can fill this form to contact us directly using flask:
+                                </legend>
+                                <div style="padding:24px;">
+                                    <form action="{{ url_for('contact_us') }}" method="POST" enctype="multipart/form-data" name="EmailForm">
+                                        Name:<br>
+                                        <input type="text" size="25" name="Contact-Name"><br><br> Email:
+                                        <br>
+                                        <input type="email" size="25" name="Contact-Email"><br><br> Enter Your Message Here:<br>
+                                        <textarea name="Contact-Message" rows="6" cols="20">
+                    </textarea><br><br>
+                                        <button type="submit" value="Submit" class="btn">Send</button>
+                                    </form>
+                                </div>
+                            </fieldset>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </nav>
-    </header>
-
-    <main>
-
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <form action="mailto:Ubtalubt@gmail.com" method="post" onsubmit="window.open('thank-you.html', 'Thank You', 'width=400,height=200');">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea><br>
-                <button type="submit" id="submit" class="black">Submit</button>
-
-            </form>
         </div>
-
-
-    </main>
-
-</html>
-
-
-        </div>
-
-        </div>
-        <!-- partial:index.partial.html -->
-        <!-- #CodePenChallenge: Timekeeping -->
-        <div class="clock">
-            <div class="hour-hand">
-            </div>
-            <div class="minute-hand">
-            </div>
-            <div class="second-hand">
-            </div>
-            <div class="circle">
-            </div>
-            <ul class="digits">
-                <li class="digit">1</li>
-                <li class="digit">2</li>
-                <li class="digit">3</li>
-                <li class="digit">4</li>
-                <li class="digit">5</li>
-                <li class="digit">6</li>
-                <li class="digit">7</li>
-                <li class="digit">8</li>
-                <li class="digit">9</li>
-                <li class="digit">10</li>
-                <li class="digit">11</li>
-                <li class="digit">12</li>
-            </ul>
-        </div>
-
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-        <script src="clock_js.js"></script>
-        <script src="a.js"></script>
-
-    </main>
-    <footer>
-        <p>&copy; 2023 Online Store. All rights reserved.</p>
-    </footer>
+    </div>
+    {% endblock myContent %}
 </body>
 
 </html>
