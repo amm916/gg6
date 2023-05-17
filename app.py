@@ -3,7 +3,7 @@ from postsdata import posts
 
 app = Flask(__name__)
 
-# Page Routes
+# Define the route for the home page
 @app.route("/")
 def homePagex():
    return render_template('home.html')
@@ -29,48 +29,69 @@ def home():
                            title='all posts',
                            posts=posts)
 
+app = Flask(__name__)
 
-@app.route('/posts/<int:post_id>')
-def show_post(post_id):
-    if post_id < len(posts):
-       p = posts[post_id]
-       return render_template('postsingle.html',
-       title= f"Post#{post_id}", p = p )
+# Define the configuration for Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'youremail@gmail.com'
+app.config['MAIL_PASSWORD'] = 'yourpassword'
+
+
+# Define the route for the home page
+@app.route("/")
+def index():
+    return render_template("home.html")
+
+# Define the route for the posts page
+@app.route("/posts")
+def posts():
+    return render_template("posts-all.html", posts=posts)
+
+# Define the route for a single post page
+@app.route("/posts/<int:id>")
+def post(id):
+    post = next((p for p in posts if p["id"] == id), None)
+    if post:
+        return render_template("post-single.html", post=post)
     else:
-        return render_template('404.html'), 404
+        return render_template("404.html"), 404
 
-    
-#to get favicon working on layout instead of html page
-import os
-from flask import send_from_directory
-from json import dumps
+# Define the route for the contact us page
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        message = request.form.get("message")
 
-
-
-#Implementing flask to the second form of the contact us page
-@app.route('/contact-us', methods=['POST'])
-def contact_us():
-    name = request.form['Contact-Name']
-    email = request.form['Contact-Email']
-    message = request.form['Contact-Message']
-
-    # Send email using Flask-Mail
-    msg = Message('Contact Us Form Submission',
+    @app.route('/send_email', methods=['POST'])
+    def send_reset_email():
+        user_email = request.form['user_email']
+    msg = Message('title of  email',
                   sender='noreply@demo.com',
-                  recipients=['ubttester1@gmail.com'])
+                  recipients=['Ubtalubt@gmail.com'])
     msg.body = f'''
-        Name: {name}
-        Email: {email}
-        Message: {message}
+        Hello {'Ubtalubt@gmail.com'},
     '''
     mail.send(msg)
+    return 'success!'
 
-    # Return a success message to the user
-    return 'Thank you for your message!'\
-        '<a href="/contact"> Click here to submit another message.'\
-        '</a> <br> Or click <a href="/index">Home</a> to return to the main page'
 
-#debug tool
+# Define the route for the 404 page
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template("404.html"), 404
+
+# Define the route for the server error page
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template("500.html"), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 if __name__ == '__main__':
 	app.run( debug=True )
 
