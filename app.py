@@ -32,11 +32,13 @@ def home():
 app = Flask(__name__)
 
 # Define the configuration for Flask-Mail
+
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'youremail@gmail.com'
-app.config['MAIL_PASSWORD'] = 'yourpassword'
+app.config['MAIL_USERNAME'] = 'b1nali.discord@gmail.com'
+
+app.config['MAIL_PASSWORD'] = 'AMJADg20002016$$'
 
 
 # Define the route for the home page
@@ -59,6 +61,19 @@ def post(id):
         return render_template("404.html"), 404
 
 # Define the route for the contact us page
+
+@app.route('/send_email', methods=['post'])
+def send_reset_email(user_email):
+
+   msg = Message('email title',
+                 sender = 'noreply@demo.com',
+                 recipients = [user_email] )
+
+   msg.body = f'''
+   	Hello { user_email }
+   '''
+   mail.send(msg)
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
